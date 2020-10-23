@@ -6,6 +6,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    user-select: none;
 }
 
 .clearfix::after {
@@ -15,25 +16,32 @@
 }
 
 body {
-    background-image: linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4)), url(back.jpg);
+    position: relative;
+    
+    height: 100vh;
+    
+    background-image: linear-gradient(#3e141466, #3e141466), url(back.jpg);
     background-size: cover;
     background-position: center;
+
     font-family: Lato;
     font-weight: 300;
-    position: relative;
-    height: 100vh;
+    
     color: #555;
 }
 
 
 .box {
+    display: flex;
+    
     height: 15vh;
     width: 15vh;
-    user-select: none;
+    
     font-family: Helvetica;
     font-weight: bold;
-    font-size: 10em;
-    display: flex;
+    font-size: 16vh;
+
+    padding-bottom: 9%;
     justify-content: center;
     align-items: center;
 }
@@ -43,39 +51,63 @@ body {
     color: #555;
 }
 
-.playable.player-1-turn:hover:before {content:"〇";}
-.playable.player-0-turn:hover:before {content:"✖";}
+.playable.player-1-turn:hover:before { content:"〇"; }
+.playable.player-0-turn:hover:before { content:"✖"; }
 
-.player-1 {
-    color: #3a7bcf;
+.player-1 { color: #3a7bcf; }
+.player-0 { color: #EB4D4D; }
+
+.msg {
+    position: absolute;
+    
+    top: 7%;
+    left: 50%;
+    
+    font-size: 5vh;
+    text-align: center;
+    transform: translate(-50%, -50%);
 }
-.player-0 {
-    color: #EB4D4D;
-}
 
-
-.board {
+.board{
     /* Center on the div*/
     position: absolute;
+    overflow: hidden;
+
     top: 50%;
     left: 50%;
+    
     transform: translate(-50%, -50%);
-    background-color: #fff;
-    overflow: hidden;
 
     /* Grid display */
     display: grid;
 	grid-template: repeat(3, 1fr) / repeat(3, 1fr);
 }
 
+#line {
+    position: absolute;
+    display: none;
+    
+    width: 45vh;
+    height: 1vh;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+    background-color: #000;
+}
+
 .wrapper {
+    position: absolute;
+    overflow: hidden;
+    
     width: 70%;
     height: 70%;
-    position: absolute;
+    
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
+    
     box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
+    background-color: #fff;
+    transform: translate(-50%, -50%);
 }
