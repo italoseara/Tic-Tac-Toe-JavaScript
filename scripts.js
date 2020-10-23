@@ -70,7 +70,7 @@ function checkWin() {
     
     gameState = false;
 
-    line.display = 'block';
+    if (winner !== 'Draw') line.display = 'block';
     
     winner === 'Draw' ? msg.innerHTML = 'Draw!' : winner === '〇' ? msg.innerHTML = '<span style="color: #3a7bcf;">〇</span> Won!' : msg.innerHTML = '<span style="color: #EB4D4D;">✖</span> Won!';
     
